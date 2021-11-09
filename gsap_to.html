@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        #submit {
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+
+    <input id="submit" type="button" value="開始">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+
+    <script>
+        document.querySelector('#submit').onclick = function() {
+            gsap.to('.box1', {
+                duration: 3,
+                x: 300,
+                ease: "bounce.out"
+            });
+        };
+
+        // to 最常使用到的, 從原點移動到x軸位置
+
+        // ease 值可參考官方網站
+        // https://greensock.com/docs/v3/Eases
+    </script>
+</body>
+</html>

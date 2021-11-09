@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #submit {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <input id="submit1" type="button" value="藍色開始">
+    <input id="submit2" type="button" value="紅色開始">
+    <p>連按按鈕看看</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+
+    <script>
+        document.querySelector('#submit1').onclick = function() {
+            gsap.from('.box1', {
+                duration: 3,
+                x: 300,
+                ease: "bounce.out"
+            })
+        };
+
+        document.querySelector('#submit2').onclick = function() {
+            gsap.fromTo('.box2', {
+                x: 300
+            },
+            {
+                duration: 3,
+                x: 0,
+                ease: "bounce.out"
+            })
+        };
+
+        // 請參考如果在還沒結束動畫時, 再點選按鈕的反應
+    </script>
+</body>
+</html>

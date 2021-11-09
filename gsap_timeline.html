@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        .box2 {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+
+        .box3 {
+            width: 80px;
+            height: 80px;
+            background-color: green;
+        }
+
+        #submit {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+
+    <input id="submit" type="button" value="開始">
+    <input id="pause" type="button" value="暫停">
+    <input id="resume" type="button" value="繼續">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+
+    <script>
+        let tl = gsap.timeline();
+        document.querySelector('#submit').onclick = function() {
+            tl.to('.box1', {
+                duration: 3,
+                x: 300,
+                ease: "bounce.out"
+            }).to('.box2', {
+                duration: 3,
+                x: 300,
+                ease: "rough"
+            }).to('.box3', {
+                duration: 3,
+                x: 300,
+                ease: "elastic.out"
+            })
+        }
+
+        document.querySelector('#pause').onclick = function() {
+            tl.pause();
+        }
+
+        document.querySelector("#resume").onclick = function() {
+            tl.resume();
+        }
+        // timeline 會建立一個時間軸
+        // to可以變成鏈狀結構
+        // 動作完成後才會依序做下個動作
+    </script>
+</body>
+</html>
